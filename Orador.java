@@ -24,4 +24,45 @@ public class Orador {
 	public void setId(int idNuevo) {
 		this.id_orador = idNuevo; 
 	}
+	
+	public String getNombre() {
+		return this.nombre; 
+	} 
+
+	public void setNombre(String nombreNuevo) {
+		this.nombre = nombreNuevo; 
+	}
+	
+	public String getApellido() {
+		return this.apellido; 
+	} 
+
+	public void setApellido(String apellidoNuevo) {
+		this.apellido = apellidoNuevo; 
+	}
+	
+	public String getTema() {
+		return this.tema; 
+	} 
+
+	public void setTema(String temaNuevo) {
+		this.tema = temaNuevo; 
+	}
+	
+	public String getMail() {
+		return this.mail; 
+	} 
+	
+	public void setMail(String mailNuevo) {
+		this.mail = mailNuevo; 
+	}
+	
+	
+	public String getFecha() {
+		return this.fecha_alta; 
+	} 
+
+	public void setFecha(String fechaNueva) {
+		this.fecha_alta = fechaNueva; 
+	}
 }
