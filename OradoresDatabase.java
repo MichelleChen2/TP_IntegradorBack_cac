@@ -15,7 +15,8 @@ public class OradoresDatabase {
 	
 	// Consultas
 	private final String buscoNombre = "SELECT * FROM " + Databases.oradores + "WHERE " + campNombre + "= ?"; 
-	private final String buscoId = "SELECT * FROM" + Databases.oradores + "WHERE" + campId " = ?"; 
+	private final String buscoId = "SELECT * FROM" + Databases.oradores + "WHERE" + campId + " = ?"; 
+	private final String buscoMail = "SELECT * FROM " + Databases.oradores + "WHERE " + campMail + "= ?"; 
 	
 	public OradoresDatabase() {
 		try {
@@ -23,6 +24,21 @@ public class OradoresDatabase {
 		} catch (SQLException error) {
 			error.printStackTrace(); 
 		}
+	}
+
+	public Orador buscarMail(String mail) throws SQLException {
+		PreparedStatement hojaVirtual = mysql.prepareStatement(buscoMail); 
+		hojaVirtual.setString(1, mail);
+		ResultSet data = hojaVirtual.executeQuery(); 
+		Orador orador = null; 
+		
+		while(data.next()) {
+			orador = new Orador(data.getInt(campId), data.getString(campNombre), 
+								data.getString(campApellido), data.getString(campTema), 
+								data.getString(campMail), data.getString(campFecha)); 
+		}
+		
+		return orador; 
 	}
 	
 	public Orador buscarNombre(String nombre) throws SQLException {
